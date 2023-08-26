@@ -4,7 +4,6 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 enable_testing()
 
-
 add_subdirectory(googletest)
 
 add_library(Client STATIC include/Server.hpp src/Server.cpp
@@ -12,11 +11,11 @@ add_library(Client STATIC include/Server.hpp src/Server.cpp
         src/UserModel.cpp
         src/UserModel.cpp
         src/ChatModel.cpp
-        include/ChatModel.h
+        include/ChatModel.hpp
         src/MessageModel.cpp
         include/MessageModel.hpp
         src/connector.cpp
-        include/connector.h
+        include/connector.hpp
 )
 
 add_subdirectory(tests)

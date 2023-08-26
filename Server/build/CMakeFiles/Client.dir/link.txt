@@ -1,2 +1,0 @@
-/usr/bin/ar qc libClient.a CMakeFiles/Client.dir/src/Server.cpp.o CMakeFiles/Client.dir/src/UserModel.cpp.o CMakeFiles/Client.dir/src/ChatModel.cpp.o CMakeFiles/Client.dir/src/MessageModel.cpp.o CMakeFiles/Client.dir/src/connector.cpp.o
-/usr/bin/ranlib libClient.a

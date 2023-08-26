@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.8)
+project(Client)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+enable_testing()
+add_subdirectory(googletest)
+add_library(Client STATIC include/example.hpp src/example.cpp)
+add_subdirectory(tests)

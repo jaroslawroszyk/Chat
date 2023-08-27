@@ -1,12 +1,11 @@
-#ifndef CHAT_MESSAGEMODEL_HPP
-#define CHAT_MESSAGEMODEL_HPP
+#pragma once
 
 #include <string>
 #include <vector>
 #include "UserModel.hpp"
 
-class MessageModel{
-    std::vector
+class MessageModel
+{
 public:
     MessageModel(UserModel Sender, std::vector<MessageModel> ReciverGroup);
 
@@ -15,9 +14,5 @@ public:
     std::string getReciver();
 
     bool isRecived();
-
-
-
 };
 
-#endif // CHAT_MESSAGEMODEL_HPP

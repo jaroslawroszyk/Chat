@@ -1,9 +1,7 @@
-#ifndef Client_EXAMPLE_HPP
-#define Client_EXAMPLE_HPP
-class Server{
-public:
-Server();
-private:
+#pragma once
 
+class [[deprecated("This class is currently not used - implement it")]] Server
+{
+public:
+    Server();
 };
-#endif //Client_EXAMPLE_HPP

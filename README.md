@@ -82,14 +82,14 @@ After building both the server and client, you can run the chat application.
 
 Navigate to the `Server/build` directory and run the server:
 ```
-./chat_server
+./ChatServer
 ```
 
 #### Running the Client:
 
 Navigate to the `Client/build` directory and run the client:
 ```
-./chat_client
+./ChatClient
 ```
 
 ## Requirements

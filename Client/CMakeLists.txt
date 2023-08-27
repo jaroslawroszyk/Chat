@@ -13,7 +13,7 @@ include_directories(${COMMON_INCLUDES})
 
 add_library(${PROJECT_NAME}_lib ${SOURCES})
 
-add_executable(${PROJECT_NAME} src/ClientMain.cpp)
+add_executable(${PROJECT_NAME} src/ChatClient.cpp)
 target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}_lib ${FLAGS})
 
 include(FetchContent)

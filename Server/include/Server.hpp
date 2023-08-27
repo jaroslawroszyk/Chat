@@ -1,7 +1,7 @@
 #pragma once
 
-class [[deprecated("This class is currently not used - implement it")]] Server
+class Server
 {
 public:
-    Server();
+    auto print() -> void;
 };

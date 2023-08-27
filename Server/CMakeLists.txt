@@ -25,7 +25,7 @@ set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/include)
 include_directories(${COMMON_INCLUDES})
 
 add_library(${PROJECT_NAME}_lib ${SOURCES})
-add_executable(${PROJECT_NAME} src/Server.cpp)
+add_executable(${PROJECT_NAME} src/ChatServer.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_lib ${FLAGS})
 
 file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/tests/*.cpp)

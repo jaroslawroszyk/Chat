@@ -1,9 +1,7 @@
-#ifndef Client_EXAMPLE_HPP
-#define Client_EXAMPLE_HPP
-class Server{
-public:
-Server();
-private:
+#pragma once
 
+class Server
+{
+public:
+    auto print() -> void;
 };
-#endif //Client_EXAMPLE_HPP

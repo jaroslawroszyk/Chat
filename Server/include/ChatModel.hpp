@@ -1,15 +1,4 @@
-//
-// Created by barti on 15.08.2023.
-//
+#pragma once
 
-#ifndef CLIENT_CHATMODEL_H
-#define CLIENT_CHATMODEL_H
-
-
-
-class ChatModel {
-
-};
-
-
-#endif //CLIENT_CHATMODEL_H
+[[deprecated("This class is currently not used - implement it")]]
+class ChatModel {};

@@ -1,17 +1,20 @@
 #include "../include/MessageModel.hpp"
 
-bool MessageModel::isRecived() {
+MessageModel::MessageModel(UserModel Sender, std::vector<MessageModel> ReciverGroup)
+{
+}
+
+auto MessageModel::isRecived() -> bool
+{
     return false;
 }
 
-std::string MessageModel::getReciver() {
+auto MessageModel::getReciver() -> std::string
+{
     return std::string();
 }
 
-std::string MessageModel::getSender() {
+auto MessageModel::getSender() -> std::string
+{
     return std::string();
-}
-
-MessageModel::MessageModel(UserModel Sender, std::vector<MessageModel> ReciverGroup) {
-
 }

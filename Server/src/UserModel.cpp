@@ -2,33 +2,31 @@
 
 #include "../include/UserModel.hpp"
 
-UserModel::UserModel(int index, std::string login, std::string password, std::string email, int phoneNumber) {
-    this -> index = index;
-    this -> login = std::move(login);
-    this -> password = std::move(password);
-    this -> email = std::move(email);
-    this -> phoneNumber = phoneNumber;
-
+UserModel::UserModel(int index, std::string login, std::string password, std::string email, int phoneNumber) : index(index), login(login), password(password), email(email), phoneNumber(phoneNumber)
+{
 }
 
-std::string UserModel::getLogin() const {
-
+auto UserModel::getLogin() const -> std::string
+{
     return login;
 }
 
-int UserModel::getIndex() const {
+auto UserModel::getIndex() const -> int
+{
     return index;
 }
 
-std::string UserModel::getPassword() const {
+auto UserModel::getPassword() const -> std::string
+{
     return password;
 }
 
-std::string UserModel::getEmail() const {
+auto UserModel::getEmail() const -> std::string
+{
     return email;
 }
 
-int UserModel::getPhoneNumber() const {
+auto UserModel::getPhoneNumber() const -> int
+{
     return phoneNumber;
 }
-

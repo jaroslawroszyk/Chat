@@ -6,17 +6,16 @@ set(FLAGS -Wall -Wextra -Werror -Wpedantic)
 
 enable_testing()
 
-# Add boost lib sources
 set(BOOST_INCLUDE_LIBRARIES thread filesystem system asio beast)
 set(BOOST_ENABLE_CMAKE ON)
 
-# Download and extract the boost library from GitHub
+# Include Boost
 message(STATUS "Downloading and extracting boost library sources. This will take some time...")
 include(FetchContent)
-set(FETCHCONTENT_QUIET FALSE) # Needed to print downloading progress
+set(FETCHCONTENT_QUIET FALSE)
 FetchContent_Declare(
     Boost
-    URL https://github.com/boostorg/boost/releases/download/boost-1.81.0/boost-1.81.0.7z # downloading a zip release speeds up the download
+    URL https://github.com/boostorg/boost/releases/download/boost-1.81.0/boost-1.81.0.7z
     USES_TERMINAL_DOWNLOAD TRUE 
     GIT_PROGRESS TRUE   
     DOWNLOAD_NO_EXTRACT FALSE
@@ -32,7 +31,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
-# Other project settings...
 set(SOURCES
     src/Server.cpp
     src/UserModel.cpp

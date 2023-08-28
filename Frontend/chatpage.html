@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Chat App</title>
+<link rel="stylesheet" href="chatpage.css">
+<!-- <script src="app.js"></script> -->
+</head>
+<body>
+  <div class="nav-buttons">
+    <button class = "add-friend-button" onclick="openModal()">Add Friend</button>
+    <button class = "profile">profile</button>
+    <button class = "logout"><a class= "a-logout" href="https://www.shopify.com/">logout</a></button>
+  </div>
+  <div class="chat-app">
+    <div class="friends-list">
+      <h2>Your Friends</h2>
+      <ul class="friend-list">
+        <li class="friend-iatem selected">
+          <div class="friend-avatar">
+            <div class="friend-avatar"><img class="friend-avatar" src="img/takato.webp" alt="Flowers in Chania"></div>
+          </div>
+          <div class="friend-info" onclick="switchChat('Takato','abcia')">
+            <h3>Takato</h3>
+            <p>Last message: Hey there!</p>
+          </div>
+        </li>
+        <li class="friend-item selected">
+          <div class="friend-avatar">
+            <img class="friend-avatar" src="img/junta.webp" alt="Flowers in Chania">
+          </div>
+          <div class="friend-info" onclick="switchChat('Junta','babcia')">
+            <h3>Junta</h3>
+            <p>Last message: How are you?</p>
+          </div>
+        </li>
+        <!-- Add more friends here -->
+      </ul>
+    </div>
+    <div class="chat-container">
+      <div class="chat-header">
+        <h2>Chat with <span id="current-friend-name"></span></h2>
+      </div>
+      <div class="chat-content" id="chat-content">
+      <div class="messages">
+        <div class="sent">
+          <img class="avatar" src="img/junta.webp" alt="Sent Avatar">
+          babcia
+        </div>
+        <div class="received">
+          <img class="avatar" src="img/takato.webp" alt="Received Avatar">
+          dziadek
+        </div>
+      </div>
+    </div>
+      <div class="input-container">
+        <input class="input-texts" type="text" placeholder="Type your message...">
+        <button>Send</button>
+        <button class="voice-call-button">📞</button>
+        <button class="screen-share-button">📺</button>
+      </div>
+    </div>
+    
+    <script src="app.js"></script>
+  </div>
+</body>
+<!-- Add Friend Modal -->
+<div id="add-friend-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-button" onclick="closeModal()">&times;</span>
+    <h2 class = "add-friend-text">Add Friend</h2>
+    <div class="center">
+      <div class="search-container">
+        <input class="searchbar-friends" type="text" id="friend-username" placeholder="Enter friend's username">
+      </div>
+    </div>
+    <button class="stylish-button" onclick="searchFriend()">Search</button>
+    <div id="search-results"></div>
+  </div>
+</div>
+
+</html>
+
+ 
+

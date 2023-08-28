@@ -1,0 +1,15 @@
+{
+  "name": "komunikator",
+  "version": "1.0.0",
+  "description": "komunikator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Ninio",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^25.4.0",
+    "electron-reloader": "^1.2.3"
+  }
+}

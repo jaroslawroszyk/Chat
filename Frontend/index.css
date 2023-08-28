@@ -1,0 +1,39 @@
+/* Reset some default styling */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Basic styling */
+  .friend-list {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    background-color: #f0f0f0;
+    padding: 20px;
+  }
+  
+  .friend-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .friend-item:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .selected {
+    background-color: #c0c0c0;
+  }
+  
+  .chat {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  #chat-content {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 10px;
+  }
+  

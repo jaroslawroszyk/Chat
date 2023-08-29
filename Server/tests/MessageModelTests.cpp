@@ -3,7 +3,7 @@
 
 TEST(MessageModelTest, messageModelConstruktor)
 {
-    EXPECT_EQ(2 + 2, 4);
+    EXPECT_EQ(2 + 2 + 2+ 2+2+2, 4);
     // MessageModel message();
 
     // EXPECT_EQ("Bartek", message.getSender());

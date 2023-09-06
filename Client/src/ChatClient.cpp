@@ -1,8 +1,28 @@
 #include <iostream>
+#include <boost/asio.hpp>
+#include <boost/beast.hpp>
+#include <thread>
+#include <atomic>
 #include "Client.hpp"
 
-auto main() -> int
+int main()
 {
-    Client client(1);
-    client.print();
+    try
+    {
+        boost::asio::io_context ioContext;
+
+        std::string serverHost = "localhost";
+        std::string serverPort = "8888";
+
+        Client client(ioContext, serverHost, serverPort);
+        client.run();
+
+        ioContext.run();
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+
+    return 0;
 }

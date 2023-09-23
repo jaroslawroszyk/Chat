@@ -6,7 +6,7 @@
 #include <thread>
 
 Client::Client(boost::asio::io_context& ioContext, const std::string& serverHost, const std::string& serverPort)
-    : ioContext(ioContext), resolver(ioContext), serverHost(serverHost), serverPort(serverPort), is_connected(true)
+    : ioContext(ioContext), resolver(ioContext), serverHost(serverHost), serverPort(serverPort), isConnected(true)
 {
 }
 
@@ -33,7 +33,7 @@ catch (const std::exception& e)
 
 auto Client::handleUserInput(ws::stream<tcp::socket>& websocket) -> void
 {
-    while (is_connected.load())
+    while (isConnected.load())
     {
         std::string message{};
         std::cout << "Enter a message to send (or 'quit' to exit): ";
@@ -41,7 +41,7 @@ auto Client::handleUserInput(ws::stream<tcp::socket>& websocket) -> void
 
         if (message == "quit")
         {
-            is_connected.store(false);
+            isConnected.store(false);
             break;
         }
 
@@ -53,7 +53,7 @@ auto Client::handleUserInput(ws::stream<tcp::socket>& websocket) -> void
 auto Client::receiveMessages(ws::stream<tcp::socket>& websocket) -> void
 try
 {
-    while (is_connected.load())
+    while (isConnected.load())
     {
         boost::beast::flat_buffer buffer;
         websocket.read(buffer);
@@ -67,17 +67,17 @@ try
 }
 catch (const boost::beast::websocket::close_reason& reason)
 {
-    if (is_connected.load())
+    if (isConnected.load())
     {
         std::cerr << "WebSocket connection closed: " << reason.reason << std::endl;
-        is_connected.store(false);
+        isConnected.store(false);
     }
 }
 catch (const std::exception& e)
 {
-    if (is_connected.load())
+    if (isConnected.load())
     {
         std::cerr << "WebSocket receive error: " << e.what() << std::endl;
-        is_connected.store(false);
+        isConnected.store(false);
     }
 }

@@ -12,7 +12,6 @@ class Client
 {
 public:
     Client(boost::asio::io_context&, const std::string& serverHost, const std::string& serverPort);
-
     void run();
 
 private:
@@ -23,5 +22,5 @@ private:
     tcp::resolver resolver;
     std::string serverHost;
     std::string serverPort;
-    std::atomic<bool> is_connected;
+    std::atomic<bool> isConnected;
 };

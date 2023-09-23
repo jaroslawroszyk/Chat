@@ -12,6 +12,8 @@ struct ClientSession : public std::enable_shared_from_this<ClientSession>
     ClientSession(int clientId, tcp::socket);
     auto handleCommunication() -> void;
     auto getClientId() -> int;
+    void start();
+
 private:
     int clientId;
     ws::stream<tcp::socket> websocket;

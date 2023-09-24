@@ -1,11 +1,10 @@
-#include "Server.hpp"
+#include "../include/Server.hpp"
 #include <iostream>
 #include <csignal>
 
 namespace
 {
     unsigned short port = 8888;
-    bool serverRunning = true;
 }
 
 auto main() -> int

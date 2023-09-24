@@ -33,16 +33,14 @@ FetchContent_MakeAvailable(googletest)
 
 set(SOURCES
     src/Server.cpp
-    src/UserModel.cpp
-    src/ChatModel.cpp
-    src/MessageModel.cpp
-    src/Connector.cpp)
+    src/ClientSession.cpp
+)
 
 set(COMMON_INCLUDES ${PROJECT_SOURCE_DIR}/include)
 include_directories(${COMMON_INCLUDES})
 
 add_library(${PROJECT_NAME}_lib ${SOURCES})
-add_executable(${PROJECT_NAME} src/ChatServer.cpp)
+add_executable(${PROJECT_NAME} src/ChatServer.cpp src/ClientSession.cpp src/Server.cpp)
 target_link_libraries(${PROJECT_NAME} PRIVATE ${PROJECT_NAME}_lib ${FLAGS} Boost::thread Boost::filesystem Boost::system Boost::asio Boost::beast)
 
 file(GLOB TEST_SRC_FILES ${PROJECT_SOURCE_DIR}/tests/*.cpp)

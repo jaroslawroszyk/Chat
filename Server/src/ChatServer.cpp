@@ -1,44 +1,37 @@
-#include <boost/asio.hpp>
-#include <boost/beast.hpp>
+#include "Server.hpp"
 #include <iostream>
+#include <csignal>
 
-namespace net = boost::asio;
-namespace http = boost::beast::http;
-using tcp = boost::asio::ip::tcp;
-
-auto handle_request(tcp::socket& socket) -> void
+namespace
 {
-    http::response<http::string_body> response;
-    response.version(11);
-    response.result(http::status::ok);
-    response.set(http::field::server, "Server");
-    response.set(http::field::content_type, "text/html");
-    response.body() = "Hello, I'm an Asio and Beast server";
-    response.prepare_payload();
-
-    http::write(socket, response);
+    unsigned short port = 8888;
+    bool serverRunning = true;
 }
 
-/*
-    How it works?
-    open web browser and type:
-    localhost:8080 or http://127.0.0.1:8080/
-*/
 auto main() -> int
 {
-    net::io_context ioc;
-    constexpr int PORT = 8080;
-    tcp::acceptor acceptor(ioc, tcp::endpoint(tcp::v4(), PORT));
-
-    while (true)
+    try
     {
-        tcp::socket socket(ioc);
-        acceptor.accept(socket);
+        boost::asio::io_context ioContext;
+        Server server(ioContext, port);
 
-        handle_request(socket);
+        boost::asio::signal_set signals(ioContext, SIGINT);
+        //Not work at all Repair this
+        signals.async_wait([&](const boost::system::error_code& error_code, int /*signal_number*/)
+            {
+                if (not error_code)
+                {
+                    std::cout << "Received Ctrl+C. Shutting down the server..." << std::endl;
+                    server.stop();
+                }
+            });
 
-        boost::system::error_code ec;
-        socket.shutdown(tcp::socket::shutdown_send, ec);
+        server.start();
+        ioContext.run();
+    }
+    catch (const std::exception& e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
     }
 
     return 0;

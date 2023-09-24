@@ -5,6 +5,7 @@
 #include <iostream>
 #include <memory>
 #include <thread>
+#include <unordered_set>
 
 using tcp = boost::asio::ip::tcp;
 namespace ws = boost::beast::websocket;
@@ -49,6 +50,7 @@ void Server::start()
 
         int client_id = next_client_id++;
         auto client = std::make_shared<ClientSession>(client_id, std::move(socket));
+        clients.insert(client);
         threads.emplace_back([client]
             {
                 try

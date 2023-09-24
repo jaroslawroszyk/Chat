@@ -1,34 +1,37 @@
-# Chat
+<div align="left">
+  <img title="title" src="./assets/icon.svg" alt="icon" align="left" width="100" style="padding-right: 1ch">
+  <h1>ChatApp</h1>
+  <p><strong>The Chat is an application that enables communication between clients through a server. Clients can send and receive messages and participate in chats.</strong></p>
+</div>
 
-The Chat is an application that enables communication between clients through a server. Clients can send and receive messages and participate in chats.
+[![Project Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![License MIT](https://img.shields.io/badge/license-MIT-blue)](#license)
+
+## Getting Started
+
+This project uses submodules to clone the repo correctly you should:
+```
+git clone --recursive [url to repo]
+```
+
+If you have already cloned the project, you should update the submodules:
+```
+git submodule update --init --recursive
+```
 
 ## Project Structure
 
 The project consists of two main components: `Server` and `Client`.
 
-### Server
+### Building the application:
 
-The `Server` folder contains the server implementation and its associated unit tests.
+To build the application, follow these steps:
 
-#### Directory Structure:
-
-- `include`: Contains header files for server-related classes.
-- `src`: Contains source files implementing the server's logic.
-- `tests`: Contains unit tests for the server.
-
-#### Building the Server:
-
-To build the server, follow these steps:
-
-1. Navigate to the `Server` folder:
-   ```
-   cd Server
-   ```
-2. Create the `build` directory (if not already present) and navigate into it:
+1. Create folder `build` in main directory
    ```
    mkdir -p build && cd build
    ```
-3. Choose your preferred generator, for example:
+2. Choose your preferred generator, for example:
    - For UNIX systems using Make:
      ```
      cmake ..
@@ -40,56 +43,21 @@ To build the server, follow these steps:
      ninja
      ```
 
-### Client
-
-The `Client` folder contains the client implementation and its associated unit tests.
-
-#### Directory Structure:
-
-- `include`: Contains header files for client-related classes.
-- `src`: Contains source files implementing the client's logic.
-- `tests`: Contains unit tests for the client.
-
-#### Building the Client:
-
-To build the client, follow these steps:
-
-1. Navigate to the `Client` folder:
-   ```
-   cd Client
-   ```
-2. Create the `build` directory (if not already present) and navigate into it:
-   ```
-   mkdir -p build && cd build
-   ```
-3. Choose your preferred generator, for example:
-   - For UNIX systems using Make:
-     ```
-     cmake ..
-     make
-     ```
-   - For UNIX systems using Ninja:
-     ```
-     cmake -G Ninja ..
-     ninja
-     ```
-
-### Running the Application
+## Running the Application
 
 After building both the server and client, you can run the chat application.
 
-#### Running the Server:
+## Running the Client:
 
-Navigate to the `Server/build` directory and run the server:
+Navigate to the `build/Client/` directory and run the Client:
 ```
-./ChatServer
+./Client
 ```
+## Running Server
 
-#### Running the Client:
-
-Navigate to the `Client/build` directory and run the client:
+Navigate to the `build/Server/` directory and run the Server:
 ```
-./ChatClient
+./Server
 ```
 
 ## Requirements

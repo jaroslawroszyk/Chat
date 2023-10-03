@@ -21,6 +21,7 @@ auto main() -> int
                 if (not error_code)
                 {
                     std::cout << "Received Ctrl+C. Shutting down the server..." << std::endl;
+                    server.disconnectClients();
                     server.stop();
                 }
             });
